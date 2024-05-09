@@ -10,7 +10,7 @@ const Chapter = ({ user }) => {
   const handledelete = async () => {
     try {
       const res = await axios.delete(
-        `https://sy-snovel-gauravsinghbisht3gmailcoms-projects.vercel.app/api/chapters/${data._id}`
+        `https://sy-snovel.vercel.app/api/chapters/${data._id}`
       );
       window.location.replace("/");
     } catch (error) {
@@ -27,7 +27,7 @@ const Chapter = ({ user }) => {
     const getchap = async () => {
       try {
         const res = await axios.get(
-          `https://sy-snovel-gauravsinghbisht3gmailcoms-projects.vercel.app/api/chapters/${Chapterno}`
+          `https://sy-snovel.vercel.app/api/chapters/${Chapterno}`
         );
         setdata(res.data[0]);
       } catch (error) {

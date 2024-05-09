@@ -10,7 +10,7 @@ const Home = () => {
     const getChapter = async () => {
       try {
         const res = await axios.get(
-          "https://sy-snovel-gauravsinghbisht3gmailcoms-projects.vercel.app/api/chapters"
+          "https://sy-snovel.vercel.app/api/chapters"
         );
         setchapters(res.data);
       } catch (error) {
