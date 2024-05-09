@@ -63,8 +63,15 @@ const updatechapcontroller = async (req, res) => {
 const findbychapterno = async (req, res) => {
   try {
     const Chapterno = req.params.chapterno;
+    if (Chapterno < 661 || Chapterno > 1150) {
+      return res.status(401).send("Chapter doesn't exist");
+    }
     const data = await Chapter.find({ Chapterno: Chapterno });
-    res.status(201).json(data);
+    if (data.length) {
+      res.status(201).json(data);
+    } else {
+      res.status(301).send(null);
+    }
   } catch (error) {
     console.log(error.message);
     res.status(501).json({ message: "Internal server error" });

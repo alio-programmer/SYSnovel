@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-
-const Addchapter = () => {
+const Adminlogin = () => {
   const [error, seterror] = useState("");
   const [data, setdata] = useState({
-    Chapterno: 0,
-    title: "",
-    content: "",
+    email: "",
+    password: "",
+    adminkey: "",
   });
   const handlechange = ({ currentTarget: input }) => {
     setdata({ ...data, [input.name]: input.value });
@@ -14,14 +13,10 @@ const Addchapter = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "/api/chapters";
+      const url = "/api/auth/login";
       const { data: res } = await axios.post(url, data);
+      localStorage.setItem("token", res.data);
       window.location = "/";
-      setdata({
-        Chapterno: 0,
-        title: "",
-        content: "",
-      });
     } catch (error) {
       if (error.response && error.response >= 400 && error.response <= 500) {
         seterror(error.response.data.message);
@@ -31,44 +26,44 @@ const Addchapter = () => {
   return (
     <div className="w-[100vw] h-[100vh] bg-slate-950 flex justify-center items-center ">
       <form
+        action="https://postman-echo.com/post"
         method="post"
         onSubmit={handlesubmit}
         className=" w-[30%] h-[60%] flex flex-col justify-center child:m-2 child:dark:p-4 rounded-lg child:p-5 child:dark:shadow-lg child:dark:rounded-md bg-gray-300 shadow-lg shadow-black"
       >
         <h1 className="flex justify-center text-4xl font-bold bg-blue-500 text-white">
-          ADD CHAPTER
+          LOGIN
         </h1>
         <input
-          type="number"
-          name="Chapterno"
-          value={data.Chapterno}
+          type="text"
+          name="email"
+          value={data.email}
           required
           onChange={handlechange}
-          placeholder="Chapter Number"
+          placeholder="Email"
         ></input>
         <input
-          type="text"
-          name="title"
-          value={data.title}
+          type="password"
+          name="password"
+          value={data.password}
           onChange={handlechange}
           required
-          placeholder="title"
+          placeholder="Password"
         ></input>
-        <textarea
-          type="text"
-          value={data.content}
-          className="large-text-box"
+        <input
+          type="password"
+          value={data.adminkey}
           onChange={handlechange}
           required
-          name="content"
-          placeholder="content"
-        ></textarea>
+          name="adminkey"
+          placeholder="Admin key"
+        ></input>
         <button onClick={handlesubmit} className=" bg-green-500 m-3">
-          ADD CHAPTER
+          LOGIN
         </button>
       </form>
     </div>
   );
 };
 
-export default Addchapter;
+export default Adminlogin;

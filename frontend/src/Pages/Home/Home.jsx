@@ -44,12 +44,8 @@ const Home = () => {
       <div className=" grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 gap-4 m-5">
         {chapters.map((item) => (
           <Link
+            className="hover:scale-105 hover:text-blue-500"
             to={`/chapter/${item.Chapterno}`}
-            state={{
-              Chapterno: item.Chapterno,
-              title: item.title,
-              content: item.content,
-            }}
           >
             <Cards key={item._id} item={item} />
           </Link>

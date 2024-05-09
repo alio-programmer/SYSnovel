@@ -1,8 +1,8 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const chapterroutes = require("./routes/ChapterRoutes");
+const authroutes = require("./routes/Authroutes");
 const connectdb = require("./mongodb/ConnectMongo");
 const app = express();
 dotenv.config();
@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api", chapterroutes);
+app.use("/auth", authroutes);
 
 app.listen(PORT, () => {
   try {
