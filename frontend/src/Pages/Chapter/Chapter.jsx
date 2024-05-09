@@ -28,6 +28,7 @@ const Chapter = ({ user }) => {
         setdata(res.data[0]);
       } catch (error) {
         console.log(error);
+        window.location.replace("/");
       }
     };
     getchap();
