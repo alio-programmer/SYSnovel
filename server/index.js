@@ -11,11 +11,7 @@ const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
 app.use(
-  cors({
-    origin: ["https://sy-snovel-frontend.vercel.app"],
-    methods: ["POST", "GET", "DELETE", "PUT"],
-    credentials: true,
-  })
+  cors()
 );
 
 app.use("/api", chapterroutes);
