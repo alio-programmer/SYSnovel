@@ -9,7 +9,7 @@ const Chapter = ({ user }) => {
 
   const handledelete = async () => {
     try {
-      const res = await axios.delete(`/api/chapters/${data._id}`);
+      const res = await axios.delete(`https://sy-snovel.vercel.app/api/chapters/${data._id}`);
       window.location.replace("/");
     } catch (error) {
       console.log("error deleting");
@@ -24,7 +24,7 @@ const Chapter = ({ user }) => {
   useEffect(() => {
     const getchap = async () => {
       try {
-        const res = await axios.get(`/api/chapters/${Chapterno}`);
+        const res = await axios.get(`https://sy-snovel.vercel.app/api/chapters/${Chapterno}`);
         setdata(res.data[0]);
       } catch (error) {
         console.log(error);
