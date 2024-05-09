@@ -10,6 +10,7 @@ const Chapter = ({ user }) => {
   const handledelete = async () => {
     try {
       const res = await axios.delete(`/api/chapters/${data._id}`);
+      window.location.replace("/");
     } catch (error) {
       console.log("error deleting");
       window.location.reload();
@@ -27,7 +28,6 @@ const Chapter = ({ user }) => {
         setdata(res.data[0]);
       } catch (error) {
         console.log(error);
-        window.location.replace("/");
       }
     };
     getchap();
