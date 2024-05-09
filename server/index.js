@@ -10,7 +10,13 @@ dotenv.config();
 const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+  {
+    origin:["https://sy-snovel-szo1.vercel.app"],
+    methods: ["POST","GET","DELETE","PUT"],
+    credentials:true
+  }
+));
 
 app.use("/api", chapterroutes);
 app.use("/auth", authroutes);
