@@ -14,7 +14,7 @@ const Addchapter = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "/api/chapters";
+      const url = "https://sy-snovel.vercel.app/api/chapters";
       const { data: res } = await axios.post(url, data);
       window.location = "/";
       setdata({
