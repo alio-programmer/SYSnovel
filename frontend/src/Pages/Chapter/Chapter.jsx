@@ -24,7 +24,7 @@ const Chapter = ({ user }) => {
   useEffect(() => {
     const getchap = async () => {
       try {
-        const res = await axios.get(`/api/chapters/${Chapterno}`);
+        const res = await axios.get(`/api/api/chapters/${Chapterno}`);
         setdata(res.data[0]);
       } catch (error) {
         console.log(error);
