@@ -13,7 +13,7 @@ const Adminlogin = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "https://sy-snovel.vercel.app/auth/login";
+      const url = `${process.env.REACT_APP_BACKEND}/auth/login`;
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.data);
       window.location = "/";
