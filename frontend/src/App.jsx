@@ -10,6 +10,8 @@ import Chapter from "./Pages/Chapter/Chapter";
 import Addchapter from "./Pages/addchapter/Addchapter";
 import Adminlogin from "./Pages/login/signin/adminlogin";
 import Updatechapter from "./Pages/updatechapter/Updatechapter";
+import About from "./Pages/About/About";
+import Contact from "./Pages/Contact/Contact";
 
 function App() {
   const user = localStorage.getItem("token") || null;
@@ -19,6 +21,8 @@ function App() {
         <Header item={user} />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           {user && <Route path="/addchapter" element={<Addchapter />} />}
           {user && (
             <Route path="/updatechapter/:id" element={<Updatechapter />} />
