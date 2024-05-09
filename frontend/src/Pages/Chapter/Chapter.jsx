@@ -10,7 +10,7 @@ const Chapter = ({ user }) => {
   const handledelete = async () => {
     try {
       const res = await axios.delete(
-        `${process.env.REACT_APP_BACKEND}/api/chapters/${data._id}`
+        `${import.meta.env.VITE_APP_BACKEND}/api/chapters/${data._id}`
       );
       window.location.replace("/");
     } catch (error) {
@@ -27,7 +27,7 @@ const Chapter = ({ user }) => {
     const getchap = async () => {
       try {
         const res = await axios.get(
-          `${process.env.REACT_APP_BACKEND}/api/chapters/${Chapterno}`
+          `${import.meta.env.VITE_APP_BACKEND}/api/chapters/${Chapterno}`
         );
         setdata(res.data[0]);
       } catch (error) {

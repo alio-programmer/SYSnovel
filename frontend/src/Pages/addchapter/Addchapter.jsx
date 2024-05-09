@@ -14,7 +14,7 @@ const Addchapter = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = `${process.env.REACT_APP_BACKEND}/api/chapters`;
+      const url = `${import.meta.env.VITE_APP_BACKEND}/api/chapters`;
       const { data: res } = await axios.post(url, data);
       window.location = "/";
       setdata({

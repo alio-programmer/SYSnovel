@@ -10,7 +10,7 @@ const Home = () => {
     const getChapter = async () => {
       try {
         const res = await axios.get(
-          `${process.env.REACT_APP_BACKEND}/api/chapters`
+          `${import.meta.env.VITE_APP_BACKEND}/api/chapters`
         );
         setchapters(res.data);
       } catch (error) {
