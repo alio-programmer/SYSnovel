@@ -1,22 +1,22 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const chapterroutes = require("../routes/ChapterRoutes");
-const authroutes = require("../routes/Authroutes");
-const connectdb = require("../mongodb/ConnectMongo");
+const chapterroutes = require("./routes/ChapterRoutes");
+const authroutes = require("./routes/Authroutes");
+const connectdb = require("./mongodb/ConnectMongo");
 const app = express();
 dotenv.config();
 
 const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
-app.use(cors(
-  {
-    origin:["https://sy-snovel-frontend.vercel.app"],
-    methods: ["POST","GET","DELETE","PUT"],
-    credentials:true
-  }
-));
+app.use(
+  cors({
+    origin: ["https://sy-snovel-frontend.vercel.app"],
+    methods: ["POST", "GET", "DELETE", "PUT"],
+    credentials: true,
+  })
+);
 
 app.use("/api", chapterroutes);
 app.use("/auth", authroutes);
