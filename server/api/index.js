@@ -1,9 +1,9 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const chapterroutes = require("./routes/ChapterRoutes");
-const authroutes = require("./routes/Authroutes");
-const connectdb = require("./mongodb/ConnectMongo");
+const chapterroutes = require("../routes/ChapterRoutes");
+const authroutes = require("../routes/Authroutes");
+const connectdb = require("../mongodb/ConnectMongo");
 const app = express();
 dotenv.config();
 
